@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hourtin Home</title>
+  <style>
+
+          body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Verdana', sans-serif;
+            background-color: #19647E;
+        }
+
+        .banniere {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #A8BBA2;
+            padding: 10px 20px;
+            color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .banniere img {
+            height: 50px;
+        }
+        .menu {
+            display: flex;
+            gap: 15px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+    .slider {
+      position: relative;
+      overflow: hidden;
+      margin: 40px 0;
+    }
+
+    .slider-images {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slider img {
+      max-height: 500px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      background-color: rgba(0, 0, 0, 0.4);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .arrow.left {
+      left: 10px;
+    }
+
+    .arrow.right {
+      right: 10px;
+    }
+
+    .reservation {
+      background: #A8BBA2;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+
+    .reservation input,
+    .reservation button {
+      margin: 5px 0;
+      padding: 8px;
+      width: 100%;
+    }
+
+    footer {
+      background-color: #A8BBA2;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    .description, .activites, .equipements, .avis {
+      background: #A8BBA2;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 30px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .activites img {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    .toggle-equipements {
+      margin-top: 10px;
+      background: #19647E;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .avis img {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+  </style>
+</head>
+<body>
+  <header class="banniere">
+    <a href="file:///Users/rubenrielland/Desktop/HourtinHome/HourtinHome.html">
+        <img src="https://i.postimg.cc/7YqwxvsS/temp-Image-Hbd-Eoo.avif" alt="Logo du site">
+    </a>
+    <nav class="menu">
+        <a href="file:///Users/rubenrielland/Desktop/HourtinHome/HourtinHome.html" class="noir">Home</a>
+        <a href="file:///Users/rubenrielland/Desktop/HourtinHome/AboutHome.html" class="noir">About</a>
+    </nav>
+</header>
+
+    <div class="slider">
+      <button class="arrow left" onclick="prevSlide()">&#10094;</button>
+      <div id="sliderImages" class="slider-images">
+        <img src="https://i.postimg.cc/wvKqmyBy/temp-Imagen-Jgf-SZ.avif" alt="Maison">
+        <img src="https://i.postimg.cc/wBCXRMz7/temp-Image-B37-BRy.avif" alt="Maison">
+        <img src="https://i.postimg.cc/W4vYqsvp/temp-Image-Px-FAez.avif" alt="Maison">
+      </div>
+      <button class="arrow right" onclick="nextSlide()">&#10095;</button>
+    </div>
+
+
+    <div class="reservation">
+      <h2>Book your stay</h2>
+      <label for="checkin">Arrival :</label>
+      <input type="date" id="checkin">
+
+      <label for="checkout">Departure :</label>
+      <input type="date" id="checkout">
+
+      <label for="guests">Number of people :</label>
+      <input type="number" id="guests" value="1" min="1">
+
+      <p id="total">Total : 0 €</p>
+      <button onclick="calculerPrix()">Calculate the price</button>
+    </div> 
+
+    <div class="description">
+      <h2>The home</h2>
+      <p>Come and live a unique experience in Hourtin-plage.  We've decided to convert two containers into an entire apartment for 4 people. Everything is just like in a house, so you won't be hot in summer or cold in winter. The accommodation comprises 2 bedrooms, each with a 180*200 double bed and a closet. There's also a shower room and toilet. The fitted kitchen and large bay windows let you enjoy the large garden. 
+
+        The entire house is available for guests' exclusive use.
+        
+        - The garden is large and child-friendly, with sun and shade all day long. 
+        - Inside the beach house, the kitchen is well equipped, and the living room is light and airy. 
+        - All doors and windows have shutters to keep the house cool in the heat of the day. 
+        - There is both English and French television, as well as wifi.
+        - Towels and bed linen are provided. 
+        There is a travel cot (no cot provided), a high chair.
+        Although the house is close to the main beach road with shops, bars and restaurants, as well as children's play facilities, it is situated in a very quiet street where, even at the height of the summer season, noise is not a problem.
+        Traveler access
+ Guests have access to all areas of the house and garden
+        
+ The property is self-contained with an enclosed garden.
+        
+        Reservations from Saturday to Saturday
+        </p>
+    </div>
+
+    <div class="activites">
+      <h2>What to do in Hourtin</h2>
+      <p>In Hourtin, you can enjoy
+        - pristine beaches just 2min away on foot,
+        -exploring cycle paths and hiking trails such as Sentier de La linaire HOURTIN.
+               At Hourtin Plage, the Sentier de la Linéaire is a trail on the unwooded dunes with breathtaking views of the Atlantic Ocean and the maritime pine forest. Illustrations of marine erosion are featured along the way, and the return journey takes you back to the south beach parking lot through a winding pine forest.
+               There's also the Sentier des Genets HOURTIN
+        After the sentier de la linéaire at Hourtin-Plage, treat yourself to a stroll along the sentier des Genêts. A walk along the dunes with a view of the ocean, the trail continues right into the heart of the Landes de Gascogne forest. You'll discover this first forest of wooded dunes along the ocean.
+        many restaurants in the area, such as LE SURF or the RESTAURANT AUX MOULES.
+               -Visit local markets to discover local produce. There's also a night market just a 2-minute walk away.
+               To stimulate the creativity of the whole family, take part in art workshops offered in the commune. Painting, pottery, handicrafts - let your imagination run wild and leave with unique memories of your stay in Hourtin. Whether you're an outdoor enthusiast, a thrill-seeker or just want to relax, this charming commune has something for everyone.
+               Hourtin offers a wide range of family activities, guaranteeing memorable vacations for young and old alike.
+        also offers surfing lessons for all levels. Hourtin's beaches offer ideal conditions for learning to master the waves as a family, under the supervision of experienced instructors
+        Meet the animals of the forest and the farm and enjoy a unique moment of intimate immersion in the Médoc and its people: over 250 preserved animals to discover, including the Bordeaux cow, the sea cow, the Gascon pig, the Landes sheep, the Pyrenean goat and many more. Keep your eyes wide open and let the wonder take hold of you: a magnificent excursion full of grace.
+               After this enchanting tour, don't miss the other activities our leisure park has to offer:
+               Accrobranche
+               Accrospider
+               Mega zip line
+               Local catering from our organic farmers
+               Trout and whitefish fishing
+               Pony rides
+               Inflatable and water playground
+               Birthday party organization</p>
+      <img src="https://i.postimg.cc/gcDhmNxw/temp-Image-D8o-Kq3.avif" alt="Activité">
+    </div>
+
+    <div class="equipements">
+      <h2>What the home has to offer</h2>
+      <ul id="equipementsList" class="hidden">
+      <h4>Bathroom</h4>
+        <li>Hair dryer</li>
+        <li>Cleaning products</li>
+        <li>Hot water</li>
+        <h4>Family</h4>
+        <li>Cot</li>
+        <li>Hight chair</li>
+        <h4>Internet and office</h4>
+        <li>Wifi</li>
+        <h4>Kitchen and dining</h4>
+        <li>Kitchen</li>
+        <li>Fridge</li>
+        <li>Microwave</li>
+        <li>Cooking basics</li>
+        <li>Dishes and cutlery</li>
+        <li>Freezer</li>
+        <li>Cooker</li>
+        <li>Oven</li>
+        <li>Kettle</li>
+        <li>Coffee maker</li>
+        <li>Wine glasses</li>
+        <li>Toaster</li>
+        <h4>Services</h4>
+        <li>Long-term stays allowed</li>
+        <li>Host greets you</li>
+        <h4>Location features</h4>
+        <li>Beach access</li>
+        <li>Private entrance</li>
+        <h4>Outdoor</h4>
+        <li>Private patio or balcony</li>
+        <h4>Parking and facilities</h4>
+        <li>Free on-street parking</li>
+        <li>Single level home</li>
+        <h4>Not inclued</h4>
+        <li>Exterior security cameras on property</li>
+        <li>TV</li>
+        <li>Dryer</li>
+        <li>Air conditioning</li>
+        <li>Smoke alarm</li>
+        <li>Carbon monoxide alarm</li>
+        <li>Heating</li>
+      </ul>
+      <button class="toggle-equipements" onclick="afficherEquipements()">Show all equipment</button>
+    </div>
+
+    <div class="avis">
+      <img src="https://i.postimg.cc/xdDGcqnq/temp-Image-TKyx-C4.avif" alt="Avis">
+    </div>
+
+    <footer>
+      <p>&copy; Contact : hourtinhome@gmail.com | © 2025 Hourtin Home</p>
+    </footer>
+  </div>
+
+  <script>
+    let index = 0;
+
+    function showSlide(i) {
+  const slides = document.querySelectorAll("#sliderImages img");
+  const total = slides.length;
+  index = (i + total) % total;
+
+  slides.forEach((slide, idx) => {
+    slide.style.display = idx === index ? "block" : "none";
+  });
+}
+
+// Affiche la première image au chargement
+showSlide(index);
+
+    function calculerPrix() {
+      const checkin = new Date(document.getElementById("checkin").value);
+      const checkout = new Date(document.getElementById("checkout").value);
+
+      if (!checkin || !checkout || checkin >= checkout) {
+        document.getElementById("total").innerText = "Dates invalides";
+        return;
+      }
+
+      const diffTime = Math.abs(checkout - checkin);
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      const prixParNuit = 150;
+      const total = prixParNuit * diffDays;
+
+      document.getElementById("total").innerText = `Total : ${total} €`;
+    }
+
+    function afficherEquipements() {
+  const equipementsList = document.getElementById("equipementsList");
+  const button = document.querySelector(".toggle-equipements");
+
+  if (equipementsList.classList.contains("hidden")) {
+    equipementsList.classList.remove("hidden");
+    button.innerText = "Hide all equipment";
+  } else {
+    equipementsList.classList.add("hidden");
+    button.innerText = "Show all equipment";
+  }
+    }
+    showSlide(index);
+  </script>
+</body>
+</html>
